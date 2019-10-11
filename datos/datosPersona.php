@@ -3,31 +3,35 @@
     require_once("../objetos/persona.php");
     class datosPeronas{
 
-        function registrarUsuario($nombre, $idCliente){
+        function registrarUsuario($nombre, $apellido, $telefono, $correo, $idCliente){
             $persona = new Persona();
             $persona->setNombre($nombre);
-            $conectar = new Conexion();
-            $conexion = $conectar->getConnection();
             $idPersonaGenerar = $persona->crearIdentificador();
             $idPersona = $persona->getIdPersona();
-                  
+
+            $conectar = new Conexion();
+            $conexion = $conectar->getConnection();
+                              
             $SqlQuery = "INSERT INTO clientepersona (idCliente,  idPersona) VALUES(:idCliente, :idPersona)";
             $statement = $conexion->prepare($SqlQuery);
             $statement->bindParam(':idCliente', $idCliente);
             $statement->bindParam(':idPersona', $idPersona);
             try {
                 $statement->execute();
-            } catch (\Throwable $th) {
-
+            } catch (Exception $e) {
+                echo $e->getMessage();
             }
             
-            $SqlQuery = "INSERT INTO persona (idPersona,  nombre) VALUES(:idPersona, :nombre)";
+            $SqlQuery = "INSERT INTO  persona (idPersona, nombre, apellido, telefono, correo) VALUES(:idPersona, :nombre, :apellido, :telefono, :correo)";
             $statement = $conexion->prepare($SqlQuery);
             $statement->bindParam(':idPersona', $idPersonaGenerar);
             $statement->bindParam(':nombre', $nombre);
+            $statement->bindParam(':apellido', $apellido);
+            $statement->bindParam(':telefono', $telefono);
+            $statement->bindParam(':correo', $correo);
             try {
                 $statement->execute();
-                return "Se agregó la persona: {$persona->getNombre()} al cliente {$idCliente}";   
+                return "Se agregó a {$persona->getNombre()} al cliente {$idCliente}";   
             } catch (\Throwable $th) {
                 return "Eror al agregar a la persona";
             }
@@ -37,7 +41,7 @@
             $listaUsuarios = array();            
             $conexion = $conectar->getConnection();
 
-            $SqlQuery = "SELECT p.idPersona, p.nombre, c.apellidoCabeza 
+            $SqlQuery = "SELECT p.idPersona, p.nombre, p.apellido, p.telefono, p.correo
             FROM persona p JOIN clientepersona cp ON cp.idPersona = p.idPersona 
             JOIN cliente c ON cp.idCliente = c.idCliente 
             WHERE c.idCliente = :idCliente";
@@ -45,15 +49,17 @@
             $statement = $conexion->prepare($SqlQuery);
             $statement->bindParam(':idCliente', $idCliente);            
             $statement->execute();
+
             $empleados = $statement->fetchAll(PDO::FETCH_ASSOC);
             foreach ($empleados as $empleado) {
                 $persona = new Persona();
                 $persona->setIdPersona($empleado['idPersona']);
                 $persona->setNombre($empleado['nombre']);
-                $persona->setApellido($empleado['apellidoCabeza']);
+                $persona->setApellido($empleado['apellido']);
+                $persona->setTelefono($empleado['telefono']);
+                $persona->setCorreo($empleado['correo']);
                 array_push($listaUsuarios, $persona);
             }
-            
             return $listaUsuarios;
         }
     }

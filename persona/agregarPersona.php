@@ -1,13 +1,12 @@
 <?php
     require_once("../datos/datosPersona.php");
     $resultadoRegistro = "";
-    if(isset($_GET['nombreCliente'])){
+    if(isset($_GET['nombrePersona'])){
         $persona = new datosPeronas();
-        $resultadoRegistro = $persona->registrarUsuario($_GET['nombreCliente'], $_GET['idCliente']);
+        $resultadoRegistro = $persona->registrarUsuario($_GET['nombrePersona'], $_GET['apellidoPersona'], $_GET['telefonoPersona'], $_GET['correoPersona'], $_GET['idCliente']);
     }
-?>
-
-<?php require_once('../includes/header.php')?>
+    
+    require_once('../includes/header.php')?>
     <div class="container">
         <?php
         if($resultadoRegistro != ""){?>
@@ -27,29 +26,29 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Nombre de la persona</label>
                 <div class="col-sm-10">
-                    <input name = "nombreCliente" type="text" class="form-control" id="nombreCliente" placeholder="Nombre de la persona" maxlength="20" required>
+                    <input name = "nombrePersona" type="text" class="form-control" id="nombrePersona" placeholder="Nombre de la persona" minlength = "3" maxlength="20" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Apellido</label>
                 <div class="col-sm-10">
-                    <input name = "nombreCliente" type="text" class="form-control" id="nombreCliente" placeholder="Apellido paterno" maxlength="15" required>
+                    <input name = "apellidoPersona" type="text" class="form-control" id="apellidoPersona" placeholder="Apellido paterno" minlength = "3" maxlength="15" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Teléfono</label>
                 <div class="col-sm-10">
-                    <input name = "telefonoCliente" type="text" class="form-control" id="telefonoCliente" placeholder="Teléfono" required>
+                    <input name = "telefonoPersona" type="number" class="form-control" id="telefonoPersona" placeholder="Teléfono" required>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Correo eletrónico</label>
                 <div class="col-sm-10">
-                    <input name = "correoCliente" type="email" class="form-control" id="correoCliente" placeholder="Correo electrónico" maxlength="" required>
+                    <input name = "correoPersona" type="email" class="form-control" id="correoCliente" placeholder="Correo electrónico" maxlength = "45" required>
                 </div>
             </div>
-            <input type="hidden"name = "idCliente" value ="<?=$_GET['idCliente']?>">
-            <input type="submit" value ="Registrar" class="btn btn-primary btn-block">
+            <input type="hidden"  name = "idCliente" value ="<?=$_GET['idCliente']?>">
+            <input type="submit" value ="Registrar" name ="registrarPersona" class="btn btn-primary btn-block">
         </form>
         </div>
         

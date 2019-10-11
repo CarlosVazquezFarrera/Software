@@ -12,7 +12,4 @@ class Conexion{
 	}
 }
 
-/*$connectar = new Conexion();
-$modelo = $connectar->getConnection();
-var_dump($modelo);*/
 ?>

@@ -4,27 +4,24 @@ require_once('../Conexion.php');
 
 
 class datosClientes{
-    private $cliente;
-    private $conectar; 
-    private $conexion;
-       
+      
     function registrarCliente($apellido, $numeroCuenta, $direccion, $telefono){
         
-        $this->cliente = new Cliente();
-        $this->conectar = new Conexion();
-        $this->conexion = $this->conectar->getConnection();
+        $cliente = new Cliente();
+        $conectar = new Conexion();
+        $conexion = $conectar->getConnection();
 
-        $this->cliente->SetApellido($apellido);
-        $this->cliente->SetNumeroCuenta($numeroCuenta);
-        $this->cliente->SetDireccion($direccion);
-        $this->cliente->SetTelefono($telefono);
+        $cliente->SetApellido($apellido);
+        $cliente->SetNumeroCuenta($numeroCuenta);
+        $cliente->SetDireccion($direccion);
+        $cliente->SetTelefono($telefono);
         
         $sqlQuery ="INSERT INTO CLIENTE (idCliente, apellidoCabeza, numeroCuenta, direccion, telefono) VALUES(:idCliente, :apellidoCabeza, :numeroCuenta, :direccion, :telefono)";
         
         $statement = $this->conexion->prepare($sqlQuery);
 
-        $identificador = $this->cliente->GetIdentificador();
-        $tarjeta = $this->cliente->GetNumeroCuenta();
+        $identificador = $cliente->GetIdentificador();
+        $tarjeta = $cliente->GetNumeroCuenta();
         
         $statement->bindParam(':idCliente', $identificador);
         $statement->bindParam(':apellidoCabeza', $apellido);
@@ -34,7 +31,7 @@ class datosClientes{
 
         try {
             $statement->execute();
-            return "Se agregó al cliente: {$this->cliente->GetIdentificador()}";
+            return "Se agregó al cliente: {$cliente->GetIdentificador()}";
         } catch (\Throwable $th) {
             return "Hubo une rror";
         }

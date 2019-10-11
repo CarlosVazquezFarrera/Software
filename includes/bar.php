@@ -15,7 +15,7 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/software/cliente/agregarCliente.php">Crear cliente</a>
-          <a class="dropdown-item" href="#">Asociar persona a cliente</a>
+          <a class="dropdown-item" href="/software/persona/asociarPersona.php">Asociar persona a cliente</a>
         </div>
       </li>
       <li class="nav-item dropdown active">

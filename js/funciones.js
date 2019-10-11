@@ -1,7 +1,15 @@
+function mensajeError(titulo, mensaje){
+    Swal.fire({
+        type: 'error',
+        title: titulo,
+        text: mensaje
+      })
+}
+
 function validarBusqueda(){
     var busqueda = document.getElementById("buscar").value;
     if (busqueda === ""){
-        alert("Escriba el una clave para buscar un cliente");
+        mensajeError("Llene el campo", "Debe escribir una clave para buscar un cliente");
         return false;
     }
 }
@@ -24,13 +32,6 @@ function isString(cadena){
     else {
         return true;
     }
-}
-function mensajeError(titulo, mensaje){
-    Swal.fire({
-        type: 'error',
-        title: titulo,
-        text: mensaje
-      })
 }
 
 function validarFormulario(){
@@ -62,19 +63,39 @@ function validarFormulario(){
 }
 
 function validarPersona(){
-    var nombre = document.getElementById("nombreCliente").value.split('');
+    var nombre = document.getElementById("nombrePersona").value.split('');
+    var apellido = document.getElementById("apellidoPersona").value.split('');
+    var telefono = document.getElementById("telefonoPersona").value.split('');
+    
     if (nombre === ""){
         mensajeError("Campo obligatorio", "El nombre no debe estar vacío");
         return false;
     }
-    if (nombre.length < 5){
-        mensajeError("Longitud de nombre", "El nombre debe estar constituido por al menos 5 caracteres");
+    else if (nombre.length < 3){
+        mensajeError("Longitud de nombre", "El nombre debe estar constituido por al menos 3 caracteres");
         return false;
     }
     else if(!isString(nombre)){
-        mensajeError("Longitud de nombre", "El nombre sólo debe contener letras");
+        mensajeError("Caracteres no permitidos", "El nombre sólo debe contener letras");
         return false;
     }
+    else if(apellido ===  ""){
+        mensajeError("Campo obligatorio", "El apellido no debe estar vacío");
+        return false;
+    }
+    else if(apellido.length < 3){
+        mensajeError("Longitud de apellido", "El apellido debe estar constituido por al menos 3 caracteres");
+        return false;
+    }
+    else if(!isString(apellido)){
+        mensajeError("Caracteres no permitidos", "El apellido sólo debe contener letras");
+        return false;
+    }
+    else if(telefono.length != 10){
+        mensajeError("Longitud del teléfono", "El teléfono debe estar constituido por 10 números");
+        return false;
+    }
+
 }
 
 function validarMascota(){
@@ -94,16 +115,16 @@ function validarMascota(){
     
     
     if (nombreMascota === ""){
-        alert("El nombre de la mascota no debe estar vacío");
+        mensajeError("Campo obligatorio", "El nombre de la mascota no debe estar vacío");
         return false;
     }
     else if (nombreMascota.length < 3){
-        alert("El nombre de la mascota debe estar constituido por al menos 3 caracteres");
+        mensajeError("Longitud del nombre de la mascota", "El nombre de la mascota debe estar constituido por al menos 3 caracteres");
         return false;
     }
     /*2019-10-03 */
     else if(fechaActual < fechaNacimiento){
-        alert("La fecha nacimiento no puede ser superior al día de hoy");
+        mensajeError("Inconsistencia de datos", "La fecha nacimiento no puede ser superior al día de hoy");
         return false;
     }
 }
@@ -121,10 +142,9 @@ $("#especie").change(function() {
             $('#raza').html(data);
           })
           .fail(function() {
-            alert("error al cargar las razas");
+            mensajeError("Error", "Error al cargar las razas");
           });
   }
-  
 });
 
 
