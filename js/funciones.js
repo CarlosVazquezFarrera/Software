@@ -144,6 +144,13 @@ function validarVacuna(){
         return false;
     }
 }
+function validarEnfermedad(){
+    var enfermedad = document.getElementById("nombreEnfermedad").value.split('');
+    if (!isString(enfermedad)){
+        mensajeError("Caracteres no permitidos", "El  nombre de la enfermedad sólo debe contener letras");
+        return false;
+    }
+}
 
 
 

@@ -25,7 +25,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="/software/vacuna/vacunas.php">Vacunas</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Enfermedades</a>
+          <a class="dropdown-item" href="/software/enfermedad/enfermedades.php">Enfermedades</a>
         </div>
       </li>
       

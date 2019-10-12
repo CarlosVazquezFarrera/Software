@@ -21,7 +21,7 @@ require_once('../includes/header.php');?>
         <?php
         }?>
     <div class="mt-3">
-        <a href="/software/cliente/clientePerfil.php?cliente=<?=$_GET['idCliente']?>">Regresar al listado</a>
+        <a href="/software/cliente/clientePerfil.php?idCliente=<?=$_GET['idCliente']?>">Regresar al listado</a>
     </div>
     <form action ="agregarMascota.php"  method="get" class = "mt-1" onsubmit = "return validarMascota();">
         <div class="form-row">
