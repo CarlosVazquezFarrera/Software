@@ -23,14 +23,15 @@
           Administración
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Agregar Vacuna</a>
-          <a class="dropdown-item" href="#">Agregar enfermedad</a>
+          <a class="dropdown-item" href="/software/vacuna/vacunas.php">Vacunas</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Enfermedades</a>
         </div>
       </li>
       
     </ul>
     <form class="form-inline my-2 my-lg-0" action="/software/cliente/clientePerfil.php" method="get" onsubmit = "return validarBusqueda();">
-      <input name = "cliente" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" id = "buscar">
+      <input name = "idCliente" class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" id = "buscar">
       <input class="btn btn-outline-success my-2 my-sm-0" value="Buscar" type = "submit"id = "butonBuscar">
     </form>
   </div>

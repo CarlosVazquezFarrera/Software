@@ -19,7 +19,7 @@
         <?php
         }?>
         <div class="mt-3">
-            <a href="/software/cliente/clientePerfil.php?cliente=<?=$_GET['idCliente']?>">Regresar al listado</a>
+            <a href="/software/cliente/clientePerfil.php?idCliente=<?=$_GET['idCliente']?>">Regresar al listado</a>
         </div>
         <div class="formulario">
         <form action = "/software/persona/agregarPersona.php" method="get"class = "mt-3" onsubmit = "return validarPersona();">

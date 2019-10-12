@@ -1,14 +1,14 @@
 <?php 
     require_once("../datos/datosPersona.php");
     $objetoListaPersonas = new datosPeronas();
-    $listaPersonas = $objetoListaPersonas->getUsuarios($_GET['cliente']);
+    $listaPersonas = $objetoListaPersonas->getUsuarios($_GET['idCliente']);
     require_once('../includes/header.php');
 ?>
 
-    <h2>Cliente <strong><?=$_GET['cliente']?></strong></h2>
+    <h2>Cliente <strong><?=$_GET['idCliente']?></strong></h2>
     <div class="my-4">
-        <a href="/software/persona/agregarPersona.php?idCliente=<?=$_GET['cliente']?>">Agregar un nuevo integrante</a>
-        <a class = "offset-8" href="/software/mascota/mascotaPerfiles.php?idCliente=<?=$_GET['cliente']?>">Ver mascotas del  cliente</a>
+        <a href="/software/persona/agregarPersona.php?idCliente=<?=$_GET['idCliente']?>">Agregar un nuevo integrante</a>
+        <a class = "offset-8" href="/software/mascota/mascotaPerfiles.php?idCliente=<?=$_GET['idCliente']?>">Ver mascotas del  cliente</a>
     </div>
     <table class="table">
         <thead>

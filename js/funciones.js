@@ -14,6 +14,14 @@ function validarBusqueda(){
     }
 }
 
+function validarBusquedaCliente(){
+    var busqueda = document.getElementById("cliente").value;
+    if (busqueda === ""){
+        mensajeError("Llene el campo", "Debe escribir una clave para buscar un cliente");
+        return false;
+    }
+}
+
 const esLetra = (caracter) =>{
     var ascci = caracter.toUpperCase().charCodeAt(0);
     return ascci > 64 && ascci < 91;
@@ -129,6 +137,16 @@ function validarMascota(){
     }
 }
 
+function validarVacuna(){
+    var vacuna = document.getElementById("nombreVacuna").value.split('');
+    if (!isString(vacuna)){
+        mensajeError("Caracteres no permitidos", "El  nombre de la vacuna sólo debe contener letras");
+        return false;
+    }
+}
+
+
+
 $("#especie").change(function() {
   var idEspecie = document.getElementById("especie").value;
   if (idEspecie != 0){
@@ -146,5 +164,6 @@ $("#especie").change(function() {
           });
   }
 });
+
 
 
