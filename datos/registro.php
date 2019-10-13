@@ -18,7 +18,7 @@ class datosClientes{
         
         $sqlQuery ="INSERT INTO CLIENTE (idCliente, apellidoCabeza, numeroCuenta, direccion, telefono) VALUES(:idCliente, :apellidoCabeza, :numeroCuenta, :direccion, :telefono)";
         
-        $statement = $this->conexion->prepare($sqlQuery);
+        $statement = $conexion->prepare($sqlQuery);
 
         $identificador = $cliente->GetIdentificador();
         $tarjeta = $cliente->GetNumeroCuenta();
