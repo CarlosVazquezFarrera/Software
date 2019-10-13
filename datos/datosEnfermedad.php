@@ -25,6 +25,30 @@ class DatosEnfermedad{
         }
         return $listaEnfermedades;
     }
+    function getEnfermedadesEspecie($especie){
+        $conectar = new Conexion();
+        $listaEnfermedades = array();            
+        $conexion = $conectar->getConnection();
+
+        $SqlQuery = "SELECT ef.idEnfermedad, e.enfermedad
+        FROM especieenfermedad ef JOIN enfermedad e ON ef.idEnfermedad = e.idEnfermedad
+        JOIN raza r ON r.IdEspecie = ef.idEspecie
+        JOIN mascota m ON m.idRaza = r.IdRaza
+        WHERE m.idMascota = :idMascota";
+
+        $statement = $conexion->prepare($SqlQuery);
+        $statement->bindParam(':idMascota', $especie);            
+        $statement->execute();
+
+        $enfermedades = $statement->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($enfermedades as $enfermedad) {
+            $enfermedadObj = new Enfermedad();
+            $enfermedadObj->setIdEnfermedad($enfermedad['idEnfermedad']);
+            $enfermedadObj->setEnfermedad($enfermedad['enfermedad']);
+            array_push($listaEnfermedades, $enfermedadObj);
+        }
+        return $listaEnfermedades;
+    }
 
     function registrarEnfermedad($enfermedad, $idEspecie){
 

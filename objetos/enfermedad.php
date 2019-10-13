@@ -1,5 +1,6 @@
 <?php
 class Enfermedad{
+    private $idEnfermedad;
     private $especie;
     private $enfermedad;
 
@@ -15,6 +16,13 @@ class Enfermedad{
     }
     function getEnfermedad(){
         return $this->enfermedad;
+    }
+
+    function setIdEnfermedad($idEnfermedad){
+        $this->idEnfermedad = $idEnfermedad;
+    }
+    function getIdEnfermedad(){
+        return $this->idEnfermedad;
     }
 }
 ?>
