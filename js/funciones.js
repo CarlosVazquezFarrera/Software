@@ -24,7 +24,7 @@ function validarBusquedaCliente(){
 
 const esLetra = (caracter) =>{
     var ascci = caracter.toUpperCase().charCodeAt(0);
-    return ascci > 64 && ascci < 91;
+    return (ascci > 64 && ascci < 91) || ascci == 130 || ascci == 32 || ascci == 193 || ascci == 201 || ascci == 205 || ascci == 211 || ascci == 218;
 }
 
 function isString(cadena){
@@ -151,8 +151,13 @@ function validarEnfermedad(){
         return false;
     }
 }
-
-
+function validarVisita(){
+    var busqueda = document.getElementById("cliente").value;
+    if (busqueda === ""){
+        mensajeError("Llene el campo", "Debe escribir una clave para buscar un cliente");
+        return false;
+    }
+}
 
 $("#especie").change(function() {
   var idEspecie = document.getElementById("especie").value;
