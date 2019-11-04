@@ -160,8 +160,8 @@ function validarVisita(){
 }
 function eliminar(idPersona, idCliente){
     Swal.fire({
-        title: '¿Seguro que desea eliminar?',
-        text: "Los cambios serán permanentes",
+        title: '¿Seguro que desea desvincular a esta persona?',
+        text: "Se realizarán cambios",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -170,15 +170,7 @@ function eliminar(idPersona, idCliente){
         cancelButtonText: 'No, cancelar'
       }).then((result) => {
         if (result.value) {
-          Swal.fire({
-            title:'¡Eliminado!',
-            text:'Se ha eliminado correctamente a la persona',
-            type:'success',
-            showCancelButton: false,
-            showConfirmButton: false,
-            timer: 1500
-          })
-          //window.location.href ="/software/cliente/clientePerfil.php?idCliente="+idCliente+"&idPersona="+idPersona
+          window.location.href ="/software/cliente/clientePerfil.php?idCliente="+idCliente+"&idPersona="+idPersona
         }
       })
 }

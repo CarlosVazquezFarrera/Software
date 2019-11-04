@@ -126,5 +126,22 @@
                 return false;
             }
         }
+        function eliminarPersona($idCliente, $idPersona){
+            $conectar = new Conexion();
+            $conexion = $conectar->getConnection();
+
+            $SqlQuery = "DELETE FROM clientepersona
+            WHERE idCliente = :idCliente AND idPersona = :idPersona";
+
+            $statement = $conexion->prepare($SqlQuery);
+            $statement->bindParam(':idCliente', $idCliente);    
+            $statement->bindParam(':idPersona', $idPersona);                     
+            if($statement->execute()){
+                return  true;
+            }
+            else{
+                return false;
+            }
+        }
     }
 ?>
