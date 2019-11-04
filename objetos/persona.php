@@ -6,41 +6,40 @@ class Persona{
     private $telefono;
     private $correo;
 
-    function setIdPersona($idPersona){
+    public function setIdPersona($idPersona){
         $this->idPersona = $idPersona;
     }
-    function getIdPersona(){
+    public function getIdPersona(){
         return $this->idPersona;
     }
-    function crearIdentificador(){
+    public function crearIdentificador(){
         $this->idPersona =  date("Y").substr($this->nombre, 0, 6).date("d").rand(0,9);
         return $this->idPersona;
     }
-    function setNombre($nombre){
+    public function setNombre($nombre){
         $this->nombre = $nombre;
     }
-    function getNombre(){
+    public function getNombre(){
         return $this->nombre;
     }
 
-    function setApellido($apellido){
+    public function setApellido($apellido){
         $this->apellido = $apellido;
     }
-    function getApellido(){
+    public function getApellido(){
         return $this->apellido;
     }
-    function setTelefono($telefono){
+    public function setTelefono($telefono){
         $this->telefono = $telefono;
     }
-    function getTelefono(){
+    public function getTelefono(){
         return $this->telefono;
     }
-    function setCorreo($correo){
+    public function setCorreo($correo){
         $this->correo = $correo;
     }
-    function getCorreo(){
+    public function getCorreo(){
         return $this->correo;
     }
-    
 }
 ?>

@@ -8,7 +8,7 @@ require_once('../includes/header.php');
 <div class="row">
     <div class="col-12 mt-2">
         <a href="/software/cliente/clientePerfil.php?idCliente=<?=$_GET['idCliente']?>">Regresar</a>
-        <a class = "offset-10" href="/software/mascota/agregarMascota.php?idCliente=<?=$_GET['idCliente']?>">Ver mascotas</a>
+        <a class = "offset-9" href="/software/mascota/agregarMascota.php?idCliente=<?=$_GET['idCliente']?>">Agregar una mascota</a>
         <hr>
     </div>
 </div>

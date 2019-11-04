@@ -6,7 +6,6 @@ if (isset($_GET['idCliente'])){
     $descuento = $visita->tieneDescuento($_GET['idCliente']);
 }
 
-
 require_once('includes/header.php');
 ?>
 <?php

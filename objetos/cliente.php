@@ -6,37 +6,36 @@ class Cliente{
     private $direccion;
     private $telefono;
 
-    function SetApellido($apellido){
+    public function SetApellido($apellido){
         $this->apellido = $apellido;
     }
-    function GetApellido(){
+    public function GetApellido(){
         return $this->apellido;
     }
 
-    function SetNumeroCuenta($numeroCuenta){
+    public function SetNumeroCuenta($numeroCuenta){
         $this->numeroCuenta = $numeroCuenta;
     }
-    function GetNumeroCuenta(){
+    public function GetNumeroCuenta(){
         return md5($this->numeroCuenta);
     }
 
-    function SetDireccion($direccion){
+    public function SetDireccion($direccion){
         $this->direccion = $direccion;
     }
-    function GetDireccion(){
+    public function GetDireccion(){
         return $this->direccion;
     }
 
-    function SetTelefono($telefono){
+    public function SetTelefono($telefono){
         $this->telefono = $telefono;
     }
-    function GetTelefono(){
+    public function GetTelefono(){
         return $this->telefono;
     }
-    function GetIdentificador(){
+    public function GetIdentificador(){
         $this->identificador = date("Y").substr($this->apellido, 0,4).rand(10,99);
         return $this->identificador;
     }
 }
-
 ?>

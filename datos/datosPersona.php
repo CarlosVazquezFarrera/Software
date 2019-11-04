@@ -61,7 +61,6 @@
             }
             return $listaUsuarios;
         }
-
         function asociarUsuario($idCliente, $idPersona){
             $conectar = new Conexion();
             $conexion = $conectar->getConnection();
@@ -76,6 +75,55 @@
                 }
             } catch (Exception $e) {
                 echo $e->getMessage();
+            }
+        }
+
+        function getDatosPersona($idPersona){
+            $conectar = new Conexion();
+            $conexion = $conectar->getConnection();
+
+            $SqlQuery = "SELECT idPersona, nombre, apellido, telefono, correo
+            FROM persona
+            WHERE idPersona = :idPersona";
+
+            $statement = $conexion->prepare($SqlQuery);
+            $statement->bindParam(':idPersona', $idPersona);            
+            $statement->execute();
+
+            $datosPersona = $statement->fetch(PDO::FETCH_ASSOC);
+
+            $persona = new Persona();
+                       
+            $persona->setIdPersona($datosPersona['idPersona']);
+            $persona->setNombre($datosPersona['nombre']);
+            $persona->setApellido($datosPersona['apellido']);
+            $persona->setTelefono($datosPersona['telefono']);
+            $persona->setCorreo($datosPersona['correo']);
+            return $persona;
+        }
+        function actualizarPersona($idPersona, $nombre, $apellido, $telefono, $correo){
+            $conectar = new Conexion();
+            $conexion = $conectar->getConnection();
+
+            $SqlQuery = "UPDATE persona
+            SET 
+            nombre = :nombre,
+            apellido = :apellido,
+            telefono = :telefono,
+            correo = :correo
+            WHERE idPersona = :idPersona";
+
+            $statement = $conexion->prepare($SqlQuery);
+            $statement->bindParam(':nombre', $nombre);            
+            $statement->bindParam(':apellido', $apellido);            
+            $statement->bindParam(':telefono', $telefono);            
+            $statement->bindParam(':correo', $correo);            
+            $statement->bindParam(':idPersona', $idPersona);            
+            if($statement->execute()){
+                return  true;
+            }
+            else{
+                return false;
             }
         }
     }

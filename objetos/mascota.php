@@ -6,38 +6,37 @@ class Mascota{
     private $raza;
     private $especie;
 
-    function setIdMascota($idMascota){
+    public function setIdMascota($idMascota){
         $this->idMascota = $idMascota;
     }
-    function getIdMascota(){
+    public function getIdMascota(){
         return $this->idMascota;
     }
 
-    function setAlias($alias){
+    public function setAlias($alias){
         $this->alias = $alias;
     }
-    function getAlias(){
+    public function getAlias(){
         return $this->alias;
     }
 
-    function setFechaNacimiento($fecha){
+    public function setFechaNacimiento($fecha){
         $this->fechaNacimiento = $fecha;
     }
-    function getFechaNacimiento(){
+    public function getFechaNacimiento(){
         return $this->fechaNacimiento;
     }
-
-    function setRaza($raza){
+    public function setRaza($raza){
         $this->raza = $raza;
     }
-    function getRaza(){
+    public function getRaza(){
         return $this->raza;
     }
 
-    function setEspecie($especie){
+    public function setEspecie($especie){
         $this->especie = $especie;
     }
-    function getEspecie(){
+    public function getEspecie(){
         return $this->especie;
     }
 }

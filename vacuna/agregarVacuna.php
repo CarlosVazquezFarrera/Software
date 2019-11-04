@@ -1,8 +1,9 @@
 <?php 
     require_once("../datos/datosEspecie.php");
     require_once("../datos/datosVacuna.php");
-    $objetoEspecie = new DatosEspecie();
     $resultadoRegistro = '';
+    
+    $objetoEspecie = new DatosEspecie();
     $listaEspecies = $objetoEspecie->getEspecies();
 
     if(isset($_GET['agregar'])){

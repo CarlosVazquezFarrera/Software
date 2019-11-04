@@ -4,24 +4,22 @@ class Enfermedad{
     private $especie;
     private $enfermedad;
 
-    function setEspecie($especie){
+    public function setEspecie($especie){
         $this->especie = $especie;
     }
-    function getEspecie(){
+    public function getEspecie(){
         return $this->especie;
     }
-
-    function setEnfermedad($enfermedad){
+    public function setEnfermedad($enfermedad){
         $this->enfermedad = $enfermedad;
     }
-    function getEnfermedad(){
+    public function getEnfermedad(){
         return $this->enfermedad;
     }
-
-    function setIdEnfermedad($idEnfermedad){
+    public function setIdEnfermedad($idEnfermedad){
         $this->idEnfermedad = $idEnfermedad;
     }
-    function getIdEnfermedad(){
+    public function getIdEnfermedad(){
         return $this->idEnfermedad;
     }
 }

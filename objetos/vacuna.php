@@ -7,45 +7,45 @@ class Vacuna{
     private $observaciones;
     private $fecha;
 
-    function setIdVacuna($idVacuna){
+    public function setIdVacuna($idVacuna){
         $this->idVacuna = $idVacuna;
     }
-    function getIdVacuna(){
+    public function getIdVacuna(){
         return $this->idVacuna;
     }
     
-    function setEspecie($especie){
+    public function setEspecie($especie){
         $this->especie = $especie;
     }
-    function getEspecie(){
+    public function getEspecie(){
         return $this->especie;
     }
 
-    function setVacuna($vacuna){
+    public function setVacuna($vacuna){
         $this->vacuna = $vacuna;
     }
-    function getVacuna(){
+    public function getVacuna(){
         return $this->vacuna;
     }
 
-    function setDosis($dosis){
+    public function setDosis($dosis){
         $this->dosis =$dosis;
     }
-    function getDosis(){
+    public function getDosis(){
         return $this->dosis;
     }
     
-    function setObservaciones($observaciones){
+    public function setObservaciones($observaciones){
         $this->observaciones = $observaciones;
     }
-    function getObservaciones(){
+    public function getObservaciones(){
         return $this->observaciones;
     }
 
-    function setFecha($fecha){
+    public function setFecha($fecha){
         $this->fecha = $fecha;
     }
-    function getFecha(){
+    public function getFecha(){
         return $this->fecha;
     }
 }

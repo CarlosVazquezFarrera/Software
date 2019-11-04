@@ -3,17 +3,17 @@ class Raza{
     private $idRaza;
     private $raza;
 
-    function setIdRaza($idRaza){
+    public function setIdRaza($idRaza){
         $this->idRaza = $raza;
     }
-    function getIdRaza(){
+    public function getIdRaza(){
         return $this->idRaza;
     }
 
-    function setRaza($raza){
+    public function setRaza($raza){
         $this->raza = $raza;
     }
-    function getRaza(){
+    public function getRaza(){
         return  $this->raza;
     }
 

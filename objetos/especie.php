@@ -3,17 +3,16 @@ class Especie{
     private $idEspecie;
     private $especie;
 
-    function setIdEspecie($idEspecie){
+    public function setIdEspecie($idEspecie){
         $this->idEspecie = $idEspecie;
     }
-    function getIdEspecie(){
+    public function getIdEspecie(){
         return $this->idEspecie;
     }
-
-    function setEspecie($especie){
+    public function setEspecie($especie){
         $this->especie = $especie;
     }
-    function getEspecie(){
+    public function getEspecie(){
         return $this->especie;
     }
 

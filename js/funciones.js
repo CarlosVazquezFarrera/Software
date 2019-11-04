@@ -158,6 +158,30 @@ function validarVisita(){
         return false;
     }
 }
+function eliminar(idPersona, idCliente){
+    Swal.fire({
+        title: '¿Seguro que desea eliminar?',
+        text: "Los cambios serán permanentes",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'No, cancelar'
+      }).then((result) => {
+        if (result.value) {
+          Swal.fire({
+            title:'¡Eliminado!',
+            text:'Se ha eliminado correctamente a la persona',
+            type:'success',
+            showCancelButton: false,
+            showConfirmButton: false,
+            timer: 1500
+          })
+          //window.location.href ="/software/cliente/clientePerfil.php?idCliente="+idCliente+"&idPersona="+idPersona
+        }
+      })
+}
 
 $("#especie").change(function() {
   var idEspecie = document.getElementById("especie").value;

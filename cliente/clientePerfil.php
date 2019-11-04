@@ -2,6 +2,7 @@
     require_once("../datos/datosPersona.php");
     $objetoListaPersonas = new datosPeronas();
     $listaPersonas = $objetoListaPersonas->getUsuarios($_GET['idCliente']);
+    
     require_once('../includes/header.php');
 ?>
 
@@ -30,8 +31,8 @@
                 <td><?=$persona->getApellido()?></td>
                 <td><?=$persona->getTelefono()?></td>
                 <td><?=$persona->getCorreo()?></td>
-                <td><a class = "btn btn-primary" href=#>Editar</a></td>
-                <td><a class = "btn btn-primary" href=#>Eliminar</a></td>
+                <td><a class = "btn btn-primary" href="/software/persona/editarPersona.php?idCliente=<?=$_GET['idCliente']?>&idPersona=<?=$persona->getIdPersona()?>">Editar</a></td>
+                <td><a class = "btn btn-primary" href=# onclick="eliminar('<?=$persona->getIdPersona()?>','<?=$_GET['idCliente']?>')">Eliminar</a></td>
             </tr>
             <?php
             }?>
